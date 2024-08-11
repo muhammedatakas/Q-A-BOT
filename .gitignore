@@ -1,0 +1,49 @@
+# Bytecode dosyaları
+__pycache__/
+*.py[cod]
+
+# Sanal ortamlar
+venv/
+ENV/
+env/
+.venv/
+
+# Çeşitli derleme ve cache dosyaları
+*.egg-info/
+*.egg
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.whl
+*.manifest
+*.spec
+
+# Test çıktıları
+coverage/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.cache
+
+# IDE ve Editor dosyaları
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Jupyter Notebook geçici dosyaları
+.ipynb_checkpoints/
+
+# Büyük veri dosyaları
+data/raw_logs/
+*.csv
+*.tsv
+*.h5
+*.sqlite
+
+# Ortak dosya ve klasörler
+.DS_Store
+Thumbs.db

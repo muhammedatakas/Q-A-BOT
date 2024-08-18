@@ -1,0 +1,8 @@
+pandas
+numpy
+streamlit
+torch
+transformers
+langchain
+langchain_ollama
+faiss-gpu

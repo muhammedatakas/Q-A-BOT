@@ -14,7 +14,7 @@ This project is a web traffic log-based question-answering system developed usin
 
 ### **1. Clone the Repository**
 ```bash
-git clone https://github.com/yourusername/traffic-log-qa.git
+git clone https://github.com/muhammedatakas/Q-A-BOT.git
 cd traffic-log-qa
 ```
 

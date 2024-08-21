@@ -1,4 +1,3 @@
-
 # **Web Traffic Log-Based Q&A System**
 
 ## **Overview**
@@ -19,15 +18,14 @@ cd traffic-log-qa
 ```
 
 ### **2. Install Dependencies**
-Use the following command to install all required packages:
+Use the following command to create and activate a Conda environment with all required packages:
 ```bash
-pip install -r requirements.txt 
-#if you want to use faiss-gpu on windows:
-conda install conda-forge::faiss-gpu
+conda env create -f environment.yml
+conda activate my_project
 ```
 
 ### **3. Prepare the Data**
-Ensure your web traffic logs are in CSV format and named `processed_logs.csv`. Place this file in the project root directory.
+Ensure your web traffic logs are in CSV format and named [`processed_logs.csv`]. Place this file in the project root directory.
 
 ### **4. Running the System**
 You can run the project directly in a Jupyter notebook or any Python environment that supports notebook-style execution. Here are the steps:
@@ -41,7 +39,7 @@ You can run the project directly in a Jupyter notebook or any Python environment
    Open the `.ipynb` file containing the main code. Execute the cells step-by-step.
 
 3. **Ask Questions:**
-   After the system is initialized, you can query it by using the `ask_question()` function. For example:
+   After the system is initialized, you can query it by using the [`ask_question()`] For example:
    ```python
    ask_question("Which IP addresses are associated with a high number of failed login attempts?")
    ```
@@ -55,18 +53,19 @@ If you want to create a Streamlit interface for your Q&A system, follow these ad
    ```
 
 2. **Run Streamlit App:**
-   Create a `app.py` file with the Streamlit code (provided above), then run:
+   Create a [`app.py`] file with the Streamlit code (provided above), then run:
    ```bash
-   streamlit run app.py
+   streamlit run streamlit_app.py
    ```
 
 ## **Project Structure**
 ```
 ├── README.md               # Project documentation
 ├── requirements.txt        # Required packages
+├── environment.yml         # Conda environment configuration
 ├── traffic-log-qa.ipynb    # Main Jupyter notebook
 ├── processed_logs.csv      # Web traffic log data
-├── app.py                  # Streamlit app (optional)
+├── streamlit_app.py                  # Streamlit app (optional)
 ```
 
 ## **Usage**
@@ -87,7 +86,7 @@ If you want to create a Streamlit interface for your Q&A system, follow these ad
 Contributions are welcome! Please fork the repository and submit a pull request with your proposed changes.
 
 ## **License**
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the LICENSE file for details.
 
 ## **Contact**
 For any questions or issues, feel free to open an issue in the repository or contact the project maintainer.

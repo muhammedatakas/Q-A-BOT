@@ -21,7 +21,9 @@ cd traffic-log-qa
 ### **2. Install Dependencies**
 Use the following command to install all required packages:
 ```bash
-pip install -r requirements.txt
+pip install -r requirements.txt 
+#if you want to use faiss-gpu on windows:
+conda install conda-forge::faiss-gpu
 ```
 
 ### **3. Prepare the Data**

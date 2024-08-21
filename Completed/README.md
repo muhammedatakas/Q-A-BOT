@@ -23,11 +23,13 @@ Use the following command to create and activate a Conda environment with all re
 conda env create -f environment.yml
 conda activate my_project
 ```
+### **3. Download Ollama Model LLaMA 3**
+To use the LLaMA 3 model locally, download it from the Ollama website and follow their instructions for installation.
 
-### **3. Prepare the Data**
+### **4. Prepare the Data**
 Ensure your web traffic logs are in CSV format and named [`processed_logs.csv`]. Place this file in the project root directory.
 
-### **4. Running the System**
+### **5. Running the System**
 You can run the project directly in a Jupyter notebook or any Python environment that supports notebook-style execution. Here are the steps:
 
 1. **Launch Jupyter Notebook:**
@@ -53,7 +55,7 @@ If you want to create a Streamlit interface for your Q&A system, follow these ad
    ```
 
 2. **Run Streamlit App:**
-   Create a [`app.py`] file with the Streamlit code (provided above), then run:
+   Create a [`streamlit_app.py`] file with the Streamlit code (provided above), then run:
    ```bash
    streamlit run streamlit_app.py
    ```

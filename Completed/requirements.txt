@@ -1,9 +1,11 @@
 pandas==2.2.2
 numpy==1.26.4
+streamlit==1.1.0
 torch==2.0.1
-transformers==4.30.2
+transformers>=4.30.2
 langchain==0.2.12
-langchain-huggingface==0.0.3
+langchain-huggingface>=0.0.3
 langchain-ollama==0.1.1
+langchain-community
 tqdm==4.65.0
 faiss-cpu  # or faiss-gpu if you have cuda installed

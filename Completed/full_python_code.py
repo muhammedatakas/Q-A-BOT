@@ -16,8 +16,11 @@ from langchain_ollama import OllamaLLM
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.document_loaders import CSVLoader
 
+
+
+    
 class LogAnalyzer:
-    def __init__(self, csv_file_path, sample_size=10000):
+    def __init__(self, csv_file_path, sample_size=1000):
         # Initialization
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
         print(f"Using device: {self.device}")

@@ -1,4 +1,0 @@
-faker
-faiss-cpu
-transformers
-torch

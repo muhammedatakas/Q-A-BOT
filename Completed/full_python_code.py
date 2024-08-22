@@ -2,11 +2,6 @@
 
 import pandas as pd
 from langchain.vectorstores import FAISS
-from langchain_huggingface import HuggingFaceEmbeddings
-from langchain.docstore import InMemoryDocstore
-from langchain.schema import Document
-from transformers import AutoModelForSeq2SeqLM, AutoTokenizer, pipeline, AutoModelForCausalLM
-from langchain_huggingface import HuggingFacePipeline
 from langchain.chains import RetrievalQA
 import torch
 import re
@@ -14,7 +9,8 @@ import logging
 from langchain.prompts import PromptTemplate
 from langchain_ollama import OllamaLLM
 from langchain.text_splitter import CharacterTextSplitter
-from langchain.document_loaders import CSVLoader
+from langchain_community.document_loaders import CSVLoader
+from langchain_huggingface import HuggingFaceEmbeddings
 
 
 
@@ -34,6 +30,7 @@ class LogAnalyzer:
             model="llama3",
             temperature=0.7,
             top_p=0.95,
+            device=self.device
         )
         self.prompt = PromptTemplate(
             template="""
@@ -77,7 +74,7 @@ class LogAnalyzer:
         df.to_csv(output_file_path, index=False)
         return output_file_path
 
-    def load_and_preprocess_logs(self, csv_file_path, sample_size=10000):
+    def load_and_preprocess_logs(self, csv_file_path, sample_size=1000):
         downsampled_csv = self.downsample_csv(csv_file_path, sample_size, 'downsampled_logs.csv')
         loader = CSVLoader(file_path=downsampled_csv)
         documents = loader.load()
@@ -108,7 +105,7 @@ class LogAnalyzer:
             f"{row['text']} (Datetime: {row['datetime']}, User Agent: {row['user_agent']})"
             for _, row in self.df.iterrows()
         ]
-        text_splitter = CharacterTextSplitter(chunk_size=500, chunk_overlap=0)
+        text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
         texts = text_splitter.create_documents(documents)
         return FAISS.from_documents(texts, self.embeddings)
 
@@ -119,3 +116,4 @@ class LogAnalyzer:
         except Exception as e:
             logging.error(f"Error occurred: {e}")
             return {"result": "An error occurred.", "source_documents": []}
+
